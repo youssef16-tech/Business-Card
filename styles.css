@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 20px;
     font-family: Helvetica, Arial, sans-serif;
 }
@@ -22,7 +22,7 @@ body {
     border-bottom: 6px solid #0D3B66;
 
 
-}
+}*/
 
 
 /*
@@ -35,3 +35,84 @@ the design of your business card, e.g.:
 - hover effects  🤯🤯
 - animations     🤯🤯🤯
 */
+/* ===== ENHANCED BUSINESS CARD CSS - FIXED LAYOUT ===== */
+
+body {
+    margin: 20px;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.avatar {
+    width: 150px;
+    border-radius: 5%;
+    border: 3px solid #0D3B66;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    order: 1;
+    /* Force avatar to be first */
+}
+
+.card {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    /* Change from space-around to space-between */
+    text-align: center;
+    background: #BBCBCB;
+    color: #502419;
+    border-bottom: 6px solid #0D3B66;
+
+    /* Enhancements */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Make the text container go to the right */
+.card>div:first-child {
+    order: 2;
+    /* Force text to be second */
+    width: 180px;
+    /* Give it some width */
+}
+
+/* Make the image container go to the left */
+.card>div:last-child {
+    order: 1;
+    /* Force image to be first */
+}
+
+/* Hover effect for the card */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-bottom-color: #F4A261;
+    background: #C5D5D5;
+}
+
+/* Hover effect for the avatar image */
+.card:hover .avatar {
+    transform: scale(1.05);
+    border-color: #F4A261;
+}
+
+/* Simple fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
